@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Cadastro\ClienteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Route::any('/clientes/search', function () {
+//     echo 'Ola Mundo';
+// })->name('clientes.search');
+
+Route::any('clientes/search', [ClienteController::class, 'search'])->name('clientes.search');
+// Route::post('/users/{id}/comments', [CommentController::class, 'store'])->name('comments.store');
+Route::resource('clientes', ClienteController::class);
+
 
 Route::get('/', function () {
     return view('welcome');
