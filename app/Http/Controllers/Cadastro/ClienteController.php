@@ -88,9 +88,29 @@ class ClienteController extends Controller
 
     public function search(Request $request)
     {
+        // dd($request);
+
         $filters = $request->except('_token');
 
         $clientes = $this->cliente->search($request->filter);
+
+        return view('pages.admin.cadastro.clientes.index', [
+            'clientes' => $clientes,
+            'filters' => $filters,
+        ]);
+    }
+
+    public function busca_geral(Request $request)
+    {
+        // dd($request);
+
+        $filters = $request->except('_token');
+
+        // dd($filters);
+
+        $clientes = $this->cliente->buscaGeral($filters);
+
+        // dd($clientes);
 
         return view('pages.admin.cadastro.clientes.index', [
             'clientes' => $clientes,

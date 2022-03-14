@@ -8,7 +8,8 @@
             <form action="{{ route('clientes.search') }}" method="POST" class="row">
                 @csrf
                 <div class="col-6">
-                    <input type="text" class="form-control" id="filter" name="filter" placeholder="Busca" value="{{ $filters['filter'] ?? '' }}">
+                    <input type="text" class="form-control" id="filter" name="filter" placeholder="Busca"
+                        value="{{ $filters['filter'] ?? '' }}">
                 </div>
                 <div class="col-auto">
                     <button type="submit" class="col-auto btn btn-dark">Filtrar</button>
@@ -18,6 +19,18 @@
 
         <table class="table table-striped table-sm">
             <thead>
+                <tr>
+                    <form action="{{ route('clientes.busca_geral') }}" method="POST" class="row">
+                        @csrf
+                        <div class="row">
+                        <th><input type="text" name="busca_nome" placeholder="Busca Nome" id="busca_nome"
+                                value="{{ $filters['busca_nome'] ?? '' }}"> </th>
+                        <th><input type="text" name="busca_endereco" placeholder="Busca Endereço" id="busca_endereco"
+                                value="{{ $filters['busca_endereco'] ?? '' }}"></th>
+                        <th><button type="submit" class="col-auto btn btn-info btn-sm">Filtrar2</button></th>
+                    </div>
+                    </form>
+                </tr>
                 <tr>
                     <th>Nome</th>
                     <th>Endereço</th>

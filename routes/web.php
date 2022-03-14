@@ -17,6 +17,7 @@ use App\Http\Controllers\Cadastro\ClienteController;
 //     echo 'Ola Mundo';
 // })->name('clientes.search');
 
+Route::any('clientes/busca_geral', [ClienteController::class, 'busca_geral'])->name('clientes.busca_geral');
 Route::any('clientes/search', [ClienteController::class, 'search'])->name('clientes.search');
 // Route::post('/users/{id}/comments', [CommentController::class, 'store'])->name('comments.store');
 Route::resource('clientes', ClienteController::class);
